@@ -69,7 +69,7 @@
 
     // 监听滚动，高亮当前导航项
     window.addEventListener('scroll', function() {
-      const sections = ['about', 'news', 'publications', 'education', 'honors', 'contact'];
+      const sections = ['about', 'news', 'publications', 'research', 'admission', 'teaching', 'contact'];
       const navItems = document.querySelectorAll('.nav-item:not(.language-btn)');
 
       let currentSection = '';
@@ -220,6 +220,7 @@
   font-weight: 500;
 }
 
+
     .profile-section {
   margin: 60px auto 20px auto;
 }
@@ -285,7 +286,7 @@
   color: #0066cc;
 }
 
-/* 个人介绍 */
+
 .profile-intro {
   margin-top: 10px;
   font-size: 14px;
@@ -293,7 +294,7 @@
   color: #333;
 }
 
-/* 联系方式 */
+
 .contact-links {
   margin-top: 15px;
   display: flex;
@@ -568,6 +569,70 @@
 
 
 
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.research-item {
+  background: #f8f9fa;
+  padding: 10px 13px;
+  border-radius: 10px;
+  border-left: 2px solid #0066cc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.research-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.research-item h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #0066cc;
+}
+
+.research-item p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+
+.research-item .collab {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a73e8;
+  margin-top: 6px;
+  transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
+
+.research-item .collab:hover {
+  color: #003366;
+}
+
+
+.collab-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dashed #999;
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+}
+
+.collab-link:hover {
+  color: #003366;
+  border-bottom-color: #003366;
+   font-weight: 600;
+}
+
+
+
+
 
 
 
@@ -637,9 +702,10 @@
   <a class="nav-item" onclick="scrollToSection('about')" data-zh="关于我" data-en="About Me">关于我</a>
   <a class="nav-item" onclick="scrollToSection('news')" data-zh="最新动态" data-en="News">最新动态</a>
   <a class="nav-item" onclick="scrollToSection('publications')" data-zh="学术论文" data-en="Publications">学术论文</a>
+  <a class="nav-item" onclick="scrollToSection('research')" data-zh="研究方向" data-en="Research">学术论文</a>
   <a class="nav-item" onclick="scrollToSection('admissions')" data-zh="招生信息" data-en="Admissions Info">招生信息</a>
   <a class="nav-item" onclick="scrollToSection('teaching')" data-zh="讲授课程" data-en="Teaching">讲授课程</a>
-  <a class="nav-item" onclick="scrollToSection('honors')" data-zh="荣誉奖项" data-en="Honors">荣誉奖项</a>
+<!--  <a class="nav-item" onclick="scrollToSection('honors')" data-zh="荣誉奖项" data-en="Honors">荣誉奖项</a>-->
   <a class="nav-item" onclick="scrollToSection('contact')" data-zh="联系我" data-en="Contact">联系我</a>
   <a class="nav-item language-btn" onclick="toggleLanguage()" data-lang="zh">
   中 / EN
@@ -936,6 +1002,150 @@
 </section>
 
 
+<section id="research" class="section">
+  <h2 data-zh="🔬 研究方向" data-en="🔬 Research Directions">🔬 研究方向</h2>
+
+  <div class="research-grid">
+
+    <!-- 多模态智能教育测评 -->
+    <div class="research-item">
+      <h3 data-zh="多模态智能教育测评"
+          data-en="Multimodal Intelligent Educational Assessment">
+        多模态智能教育测评
+      </h3>
+      <p data-zh="围绕智能教育场景，融合视觉、语言与行为等多模态信息，研究学生实验过程与个性化学习行为的理解与建模方法，构建智能化教育测评系统与设备。"
+         data-en="Focusing on intelligent education scenarios, this direction integrates visual, linguistic, and behavioral modalities to model students’ experimental processes and personalized learning behaviors, enabling intelligent assessment under low-annotation conditions.">
+        围绕智能教育场景，融合视觉、语言与行为等多模态信息，研究学生实验过程与个性化学习行为的理解与建模方法，构建智能化教育测评系统与设备。
+      </p>
+    </div>
+
+    <!-- 跨领域场景自适应 -->
+    <div class="research-item">
+      <h3 data-zh="跨领域场景自适应"
+          data-en="Cross-Domain Scene Adaptation">
+        跨领域场景自适应
+      </h3>
+      <p data-zh="研究视觉与场景感知模型在不同环境、设备及数据分布下的自适应与泛化问题，提升模型在跨场景应用中的鲁棒性与可靠性。"
+         data-en="This direction focuses on adaptation and generalization of visual and scene perception models across diverse environments, sensing platforms, and data distributions, with the goal of improving robustness and reliability in cross-scene applications.">
+        研究视觉与场景感知模型在不同环境、设备及数据分布下的自适应与泛化问题，提升模型在跨场景应用中的鲁棒性与可靠性。
+      </p>
+    </div>
+
+    <!-- 跨物种仿生感知 -->
+    <div class="research-item">
+      <h3 data-zh="跨物种仿生感知"
+          data-en="Cross-Species Bio-inspired Perception">
+        跨物种仿生感知
+      </h3>
+      <p data-zh="借鉴不同物种的感知机制与认知特性，研究仿生视觉与感知模型，为无人系统、机器人及复杂环境感知提供新的设计范式。"
+         data-en="Drawing inspiration from perceptual mechanisms and cognitive characteristics across species, this direction investigates bio-inspired visual and perception models, providing new design paradigms for unmanned systems, robotics, and perception in complex environments.">
+        借鉴不同物种的感知机制与认知特性，研究仿生视觉与感知模型，为无人系统、机器人及复杂环境感知提供新的设计范式。
+      </p>
+<p class="collab"
+   data-zh='合作学者：湖南大学 <a href="https://robotics.hnu.edu.cn/info/1176/2966.htm" target="_blank" class="collab-link">张辉 教授</a>'
+   data-en='Collaborator: <a href="https://robotics.hnu.edu.cn/info/1176/2966.htm" target="_blank" class="collab-link">Prof. Hui Zhang</a>, Hunan University'>
+  合作学者：湖南大学
+  <a href="https://robotics.hnu.edu.cn/info/1176/2966.htm"
+     target="_blank"
+     class="collab-link">
+    张辉 教授
+  </a>
+</p>
+
+    </div>
+
+    <!-- 场景全面感知与解析 -->
+    <div class="research-item">
+      <h3 data-zh="场景全面感知与解析"
+          data-en="Comprehensive Scene Perception and Analysis">
+        场景全面感知与解析
+      </h3>
+      <p data-zh="面向复杂真实场景，研究融合非模态感知、实例级与语义级信息的场景解析方法，实现对遮挡、不完整目标及上下文关系的全面感知与理解。"
+         data-en="Targeting complex real-world scenes, this direction studies comprehensive scene perception and analysis by integrating amodal perception with instance-level and semantic-level information, enabling holistic understanding of occluded objects, incomplete targets, and contextual relationships.">
+        面向复杂真实场景，研究融合非模态感知、实例级与语义级信息的场景解析方法，实现对遮挡、不完整目标及上下文关系的全面感知与理解。
+      </p>
+<p class="collab"
+   data-zh='合作学者：湖南大学 <a href="https://robotics.hnu.edu.cn/info/1176/2954.htm" target="_blank" class="collab-link">杨恺伦 教授</a>'
+   data-en='Collaborator: <a href="https://robotics.hnu.edu.cn/info/1176/2954.htm" target="_blank" class="collab-link">Prof. Kailun Yang</a>, Hunan University'>
+  合作学者：湖南大学
+  <a href="https://robotics.hnu.edu.cn/info/1176/2954.htm"
+     target="_blank"
+     class="collab-link">
+    杨恺伦 教授
+  </a>
+</p>
+
+    </div>
+
+    <!-- 电推进束流实时感知与测试 -->
+    <div class="research-item">
+      <h3 data-zh="电推进束流实时感知与测试"
+          data-en="Real-Time Beam Diagnostics for Electric Propulsion">
+        电推进束流实时感知与测试
+      </h3>
+      <p data-zh="面向空间电推进系统，基于AI视觉算法，通过束流图像解耦重构参数，实现系统状态与性能的快速实时监测，支撑性能评估与溅射沉积污染防护。"
+         data-en="For space electric propulsion systems, AI-based vision algorithms decouple and reconstruct beam parameters from images to enable rapid, real-time monitoring of system status and performance, supporting performance evaluation and sputter deposition contamination protection.">
+        面向空间电推进系统，基于AI视觉算法，通过束流图像解耦重构参数，实现系统状态与性能的快速实时监测，支撑性能评估与溅射沉积污染防护。
+      </p>
+<p class="collab"
+   data-zh='合作学者：国防科技大学 <a href="#" class="collab-link collab-link--placeholder">欧阳 副教授</a>'
+   data-en='Collaborator: <a href="#" class="collab-link collab-link--placeholder">Prof. Ouyang</a>, National University of Defense Technology'>
+  合作学者：国防科技大学
+  <a href="#" class="collab-link collab-link--placeholder">
+    欧阳 副教授
+  </a>
+</p>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<section id="admissions" class="section">
+  <h2 data-zh="🎓 招生信息" data-en="🎓 Admissions Info">🎓 招生信息</h2>
+
+  <div class="contentblock-item">
+
+    <!-- 欢迎加入 -->
+    <p style="margin-bottom: 12px;">
+      <strong data-zh="📣 欢迎加入" data-en="📣 Welcome to Join">📣 欢迎加入：</strong>
+      <span style="display:block; text-indent:2em;"
+            data-zh="欢迎本科生和研究生加入我的科研团队，一起探索人工智能与计算机视觉在智能教育中的前沿应用。"
+            data-en="We welcome undergraduate and graduate students to join our research group to explore cutting-edge AI and computer vision applications in intelligent education.">
+        欢迎本科生和研究生加入我的科研团队，一起探索人工智能与计算机视觉在智能教育中的前沿应用。
+      </span>
+    </p>
+
+    <!-- 可以获得 -->
+    <p style="margin-bottom: 12px;">
+      <strong data-zh="🏆 可以获得" data-en="🏆 What You Can Gain">🏆 可以获得：</strong>
+      <span style="display:block; text-indent:2em;"
+            data-zh="参与科研项目、发表高水平论文、参加国内外竞赛、参加国际顶级学术会议，提升科研能力和学术素养。"
+            data-en="Engage in research projects, publish high-level papers, participate in competitions, attend top international academic conferences, and enhance research skills and academic literacy.">
+    参与科研项目、发表高水平论文、参加国内外竞赛、参加国际顶级学术会议，提升科研能力和学术素养。
+  </span>
+      <span style="display:block; text-indent:2em;"
+            data-zh="你还将有机会与国内顶尖团队学习交流，参与合作科研项目，拓展视野并积累宝贵经验。"
+            data-en="You will also have opportunities to learn from top domestic teams, collaborate on research projects, broaden your horizons, and gain valuable experience.">
+        你还将有机会与国内顶尖团队学习交流，参与合作科研项目，拓展视野并积累宝贵经验。
+      </span>
+    </p>
+
+    <!-- 我们需要的人 -->
+    <p style="margin-bottom: 12px;">
+      <strong data-zh="🎯 我们需要的人" data-en="🎯 Who We Are Looking For">🎯 我们需要的人：</strong>
+      <span style="display:block; text-indent:2em;"
+            data-zh="热爱 AI 与视觉感知、有好奇心和探索精神的本科生或研究生。具有编程或工科基础更佳，并乐于团队合作和科研探索。"
+            data-en="Undergraduate or graduate students who are passionate about AI and visual perception, curious, and eager to explore. Those with programming or engineering background are preferred, and should enjoy teamwork and research.">
+        热爱 AI 与视觉感知、有好奇心和探索精神的本科生或研究生。具有编程或工科基础更佳，并乐于团队合作和科研探索。
+      </span>
+    </p>
+
+  </div>
+</section>
+
 
 
 <section id="teaching" class="section">
@@ -1045,8 +1255,8 @@
 
   <footer style="text-align: center; padding: 40px 0; color: #666; border-top: 1px solid #eee; margin-top: 40px;">
     <p data-zh="&copy; 2026 曹意宏. 版权所有." data-en="&copy; 2026 Yihong Cao. All rights reserved.">&copy; 2026 曹意宏. 版权所有.</p>
-    <p style="margin-top: 10px; font-size: 14px;" data-zh="最后更新：2026/1/11" data-en="Last updated: 1/11/2026">
-      最后更新：2026/1/11
+    <p style="margin-top: 10px; font-size: 14px;" data-zh="最后更新：2026/1/13" data-en="Last updated: 1/13/2026">
+      最后更新：2026/1/13
     </p>
   </footer>
 
