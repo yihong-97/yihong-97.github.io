@@ -1,1322 +1,1246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>曹意宏 - 个人学术主页</title>
+    <meta name="description" content="曹意宏的个人学术主页，专注于人工智能和计算机视觉研究">
+    <meta name="keywords" content="计算机视觉,人工智能">
+    <meta name="author" content="曹意宏">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="曹意宏">
+    <meta property="og:description" content="专注于人工智能与计算机视觉">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yihong-97.github.io">
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.0/css/academicons.min.css"/>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+        }
+
+
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .nav-item {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            color: #0066cc;
+        }
+
+        .language-btn {
+            background: #0066cc !important;
+            color: white !important;
+            border-radius: 20px;
+            padding: 5px 10px !important;
+            margin-left: 20px;
+            font-size: 11px;
+        }
+
+        .language-btn:hover {
+            background: #004499 !important;
+            color: white !important;
+        }
+
+
+        .main-content {
+            margin-top: 80px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            scroll-margin-top: 100px;
+        }
+
+
+        .section h2 {
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 6px;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+
+        .profile-section {
+            margin: 60px auto 20px auto;
+        }
+
+
+        .profile-section {
+            max-width: 1200px;
+            margin: 60px auto 20px auto;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+
+        .profile-left {
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .profile-image img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-left h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 10px 0 5px 0;
+            color: #333;
+        }
+
+        .profile-left h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0;
+            color: #0066cc;
+        }
+
+
+        .profile-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+        }
+
+
+        .profile-info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .profile-info-item i {
+            font-size: 16px;
+            color: #0066cc;
+        }
+
+
+        .profile-intro {
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+
+        .contact-links {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: #f2f2f2;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a i {
+            font-size: 16px;
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        .contact-links a:hover {
+            background: #0066cc;
+            color: white;
+        }
+
+
+        .paper-item {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            display: flex;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .paper-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .paper-thumb {
+            width: 180px;
+            height: 110px;
+            margin-right: 15px;
+            flex-shrink: 0;
+
+            object-fit: contain;
+            background-color: #fff;
+
+            border-radius: 5px;
+            border: 1px solid #eaeaea;
+        }
+
+
+        .paper-content {
+            flex: 1;
+        }
+
+
+        .paper-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            line-height: 1.4;
+            color: #333;
+            display: inline;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .paper-links {
+            display: inline;
+            vertical-align: middle;
+        }
+
+        .paper-links a {
+            margin-left: 4px;
+            padding: 1px 4px;
+            border: 1px solid #0066cc;
+            color: #0066cc;
+            background: transparent;
+            border-radius: 3px;
+            font-size: 10px;
+            line-height: 1.2;
+            font-weight: normal;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .paper-links a:hover {
+            background: #4da6ff;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+
+        /* 元数据：作者、期刊、分区、奖励 */
+        .paper-meta {
+            font-size: 14px;
+            margin: 4px 0; /* 减小上下间距 */
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .paper-authors {
+            font-size: 15px;
+            /*font-style: italic;*/
+            color: #333;
+            margin-right: 15px;
+            margin-bottom: 4px;
+            flex-basis: 100%; /* 作者占一行 */
+        }
+
+        .paper-venue, .paper-venue-tag, .paper-award {
+            display: inline-flex;
+            margin-right: 10px;
+            margin-bottom: 4px;
+            align-items: center;
+        }
+
+        .paper-venue {
+            color: #0066cc;
+        }
+
+        .paper-venue-tag {
+            background: #e7f3ff;
+            color: #004085;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 5px;
+        }
+
+        .paper-award {
+            background: #d4edda;
+            color: #155724;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 5px;
+        }
+
+        .author-symbol-note {
+            font-size: 12px;
+            color: #666;
+            margin: -2px 0 12px 0; /* 上下分别 4px / 12px */
+            line-height: 1.2;
+        }
+
+
+        /* 摘要 */
+        .paper-abstract {
+            font-size: 13px;
+            color: #444;
+            margin-top: 4px;
+            line-height: 1.3;
+        }
+
+
+        /* 论文列表样式 */
+        .contentblock-item {
+            background: #f8f9fa;
+            padding: 15px 15px 15px 30px; /* 上右下左，左边留30px空 */
+            margin: 20px 0; /* 上下边距稍宽 */
+            border-radius: 10px;
+            text-align: left; /* 内容左对齐 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contentblock-item ul {
+            margin: 0;
+            padding-left: 0; /* 取消 ul 自身的内边距 */
+            list-style-position: inside; /* 符号在容器内 */
+        }
+
+        .contentblock-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .news-item {
+            display: flex;
+            margin-bottom: 10px;
+            padding: 2px 0 2px 20px; /* 左边加 20px 内边距，右移内容 */
+            background: transparent;
+            border-bottom: none;
+        }
+
+        .news-date {
+            font-weight: bold;
+            color: #0066cc;
+            width: 100px;
+            flex-shrink: 0;
+            text-align: left;
+        }
+
+        .news-content {
+            flex: 1;
+            color: #333;
+            line-height: 1.4;
+        }
+
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .research-item {
+            background: #f8f9fa;
+            padding: 10px 13px;
+            border-radius: 10px;
+            border-left: 2px solid #0066cc;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .research-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .research-item h3 {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #0066cc;
+        }
+
+        .research-item p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 4px;
+        }
+
+
+        .research-item .collab {
+            font-size: 13px;
+            font-weight: 500;
+            color: #1a73e8;
+            margin-top: 6px;
+            transition: color 0.2s ease, font-weight 0.2s ease;
+        }
+
+
+        .research-item .collab:hover {
+            color: #003366;
+        }
+
+
+        .collab-link {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px dashed #999;
+            transition: color 0.2s ease, border-bottom-color 0.2s ease;
+        }
+
+        .collab-link:hover {
+            color: #003366;
+            border-bottom-color: #003366;
+            font-weight: 600;
+        }
+
+
+        @media (max-width: 768px) {
+
+            .profile-right {
+                justify-content: flex-start;
+                margin-top: 20px;
+            }
+
+            .profile-info-item {
+                justify-content: center;
+            }
+
+            .contact-links {
+                justify-content: center;
+            }
+
+            .main-content {
+                padding: 0 15px;
+            }
+
+            .section h2 {
+                font-size: 24px;
+            }
+
+            .paper-item {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .paper-thumb {
+                width: 80%;
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+            .paper-content {
+                text-align: center;
+            }
+
+
+            .nav-container {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-item {
+                font-size: 14px;
+            }
+
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-info h1 {
+                font-size: 28px;
+            }
+
+            .news-item {
+                flex-direction: column;
+            }
+
+            .news-date {
+                width: auto;
+                margin-bottom: 5px;
+            }
+
+            .main-content {
+                padding: 0 15px;
+            }
+
+            .section h2 {
+                font-size: 24px;
+            }
+
+        }
+
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #0066cc;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #004499;
+        }
+    </style>
+    <meta name="generator" content="Hexo 8.0.0">
+</head>
+
 <script>
     // 语言状态管理
     let currentLanguage = 'zh'; // 默认中文
 
     function toggleLanguage() {
-      currentLanguage = currentLanguage === 'zh' ? 'en' : 'zh';
-      updateLanguage();
+        currentLanguage = currentLanguage === 'zh' ? 'en' : 'zh';
+        updateLanguage();
 
-      // 保存语言偏好到 localStorage（如果可用）
-      try {
-        localStorage.setItem('preferredLanguage', currentLanguage);
-      } catch (e) {
-        // 忽略 localStorage 错误
-      }
+        // 保存语言偏好到 localStorage（如果可用）
+        try {
+            localStorage.setItem('preferredLanguage', currentLanguage);
+        } catch (e) {
+            // 忽略 localStorage 错误
+        }
     }
 
     function updateLanguage() {
-      const elements = document.querySelectorAll('[data-zh][data-en]');
-      elements.forEach(element => {
-        const text = currentLanguage === 'zh' ? element.getAttribute('data-zh') : element.getAttribute('data-en');
-        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-          element.placeholder = text;
-        } else {
-          element.innerHTML = text;
+        const elements = document.querySelectorAll('[data-zh][data-en]');
+        elements.forEach(element => {
+            const text = currentLanguage === 'zh' ? element.getAttribute('data-zh') : element.getAttribute('data-en');
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = text;
+            } else {
+                element.innerHTML = text;
+            }
+        });
+
+        // 更新页面标题
+        document.title = currentLanguage === 'zh' ? '曹意宏 - 个人学术主页' : 'Yihong Cao - Academic Homepage';
+
+        // 更新 meta 描述
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) {
+            metaDescription.content = currentLanguage === 'zh'
+                ? '曹意宏的个人学术主页，专注于人工智能和计算机视觉研究'
+                : 'Yihong Cao\'s academic homepage, focusing on artificial intelligence and computer vision research';
         }
-      });
-
-      // 更新页面标题
-      document.title = currentLanguage === 'zh' ? '曹意宏 - 个人学术主页' : 'Yihong Cao - Academic Homepage';
-
-      // 更新 meta 描述
-      const metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription) {
-        metaDescription.content = currentLanguage === 'zh'
-          ? '曹意宏的个人学术主页，专注于人工智能和计算机视觉研究'
-          : 'Yihong Cao\'s academic homepage, focusing on artificial intelligence and computer vision research';
-      }
     }
 
     // 页面加载时恢复语言偏好
-    window.addEventListener('load', function() {
-      try {
-        const savedLanguage = localStorage.getItem('preferredLanguage');
-        if (savedLanguage && (savedLanguage === 'zh' || savedLanguage === 'en')) {
-          currentLanguage = savedLanguage;
-          updateLanguage();
+    window.addEventListener('load', function () {
+        try {
+            const savedLanguage = localStorage.getItem('preferredLanguage');
+            if (savedLanguage && (savedLanguage === 'zh' || savedLanguage === 'en')) {
+                currentLanguage = savedLanguage;
+                updateLanguage();
+            }
+        } catch (e) {
+            // 忽略 localStorage 错误
         }
-      } catch (e) {
-        // 忽略 localStorage 错误
-      }
 
-      // 页面淡入效果
-      document.body.style.opacity = '0';
-      document.body.style.transition = 'opacity 0.5s ease-in-out';
-      setTimeout(() => {
-        document.body.style.opacity = '1';
-      }, 100);
+        // 页面淡入效果
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease-in-out';
+        setTimeout(() => {
+            document.body.style.opacity = '1';
+        }, 100);
     });
 
     function scrollToSection(sectionId) {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     }
 
     // 监听滚动，高亮当前导航项
-    window.addEventListener('scroll', function() {
-      const sections = ['about', 'news', 'publications', 'research', 'admission', 'teaching', 'contact'];
-      const navItems = document.querySelectorAll('.nav-item:not(.language-btn)');
+    window.addEventListener('scroll', function () {
+        const sections = ['about', 'news', 'publications', 'research', 'admissions', 'teaching', 'contact'];
+        const navItems = document.querySelectorAll('.nav-item:not(.language-btn)');
 
-      let currentSection = '';
-      sections.forEach(sectionId => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 120 && rect.bottom >= 120) {
-            currentSection = sectionId;
-          }
-        }
-      });
+        let currentSection = '';
+        sections.forEach(sectionId => {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 120 && rect.bottom >= 120) {
+                    currentSection = sectionId;
+                }
+            }
+        });
 
-      navItems.forEach((item, index) => {
-        if (sections[index] === currentSection) {
-          item.style.color = '#0066cc';
-          item.style.fontWeight = 'bold';
-        } else {
-          item.style.color = '#333';
-          item.style.fontWeight = '500';
-        }
-      });
+        navItems.forEach((item, index) => {
+            if (sections[index] === currentSection) {
+                item.style.color = '#0066cc';
+                item.style.fontWeight = 'bold';
+            } else {
+                item.style.color = '#333';
+                item.style.fontWeight = '500';
+            }
+        });
     });
 
     // 为所有paper-item添加点击动效
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.paper-item').forEach(item => {
-        item.addEventListener('mouseenter', function() {
-          this.style.transform = 'translateY(-3px)';
-        });
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.paper-item').forEach(item => {
+            item.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-3px)';
+            });
 
-        item.addEventListener('mouseleave', function() {
-          this.style.transform = 'translateY(0)';
+            item.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+            });
         });
-      });
     });
-  </script>
-      <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>曹意宏-个人学术主页</title>
-  <meta name="description" content="专注于人工智能与计算机视觉研究">
-  <meta name="keywords" content="计算机视觉,人工智能">
-  <meta name="author" content="曹意宏">
-
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="曹意宏">
-  <meta property="og:description" content="专注于人工智能与计算机视觉">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yihong-97.github.io">
-
-
-
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.0/css/academicons.min.css"/>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #ffffff;
-    }
-
-
-    .nav-menu {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      padding: 15px 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 0 20px;
-    }
-
-    .nav-item {
-      color: #333;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      cursor: pointer;
-    }
-
-    .nav-item:hover {
-      color: #0066cc;
-    }
-
-    .language-btn {
-      background: #0066cc !important;
-      color: white !important;
-      border-radius: 20px;
-      padding: 5px 10px !important;
-      margin-left: 20px;
-      font-size: 11px;
-    }
-
-    .language-btn:hover {
-      background: #004499 !important;
-      color: white !important;
-    }
-
-
-    .main-content {
-      margin-top: 80px;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 0 20px;
-    }
-
-    .section {
-      margin-bottom: 40px;
-      scroll-margin-top: 100px;
-    }
-
-
-    .section h2 {
-  border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 6px;
-  margin-bottom: 20px;
-  color: #333;
-  font-size: 24px;
-  font-weight: 500;
-}
-
-
-    .profile-section {
-  margin: 60px auto 20px auto;
-}
-
-
-.profile-section {
-  max-width: 1200px;
-  margin: 60px auto 20px auto;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-
-.profile-left {
-  text-align: center;
-  min-width: 200px;
-}
-
-.profile-image img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-
-.profile-left h1 {
-  font-size: 28px;
-  font-weight: 700;
-  margin: 10px 0 5px 0;
-  color: #333;
-}
-
-.profile-left h3 {
-  font-size: 16px;
-  font-weight: 500;
-  margin: 0;
-  color: #0066cc;
-}
-
-
-.profile-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-}
-
-
-.profile-info-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  color: #555;
-}
-
-.profile-info-item i {
-  font-size: 16px;
-  color: #0066cc;
-}
-
-
-.profile-intro {
-  margin-top: 10px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #333;
-}
-
-
-.contact-links {
-  margin-top: 15px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.contact-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border-radius: 20px;
-  background: #f2f2f2;
-  color: #333;
-  text-decoration: none;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-.contact-links a i {
-  font-size: 16px;
-  vertical-align: middle;
-  line-height: 1;
-}
-
-.contact-links a:hover {
-  background: #0066cc;
-  color: white;
-}
-
-@media (max-width: 768px) {
-  .nav-container {
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .nav-item {
-    font-size: 14px;
-  }
-
-  .profile-section {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .profile-right {
-    justify-content: flex-start;
-    margin-top: 20px;
-  }
-
-  .profile-info-item {
-    justify-content: center;
-  }
-
-  .contact-links {
-    justify-content: center;
-  }
-
-  .main-content {
-    padding: 0 15px;
-  }
-
-  .section h2 {
-    font-size: 24px;
-  }
-
-  /* 论文展示响应式优化 */
-  .paper-item {
-    flex-direction: column;
-    align-items: center;
-  }
-  .paper-thumb {
-    width: 80%;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  .paper-content {
-    text-align: center;
-  }
-}
-
-.paper-item {
-  background: #f8f9fa;
-  padding: 10px 15px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  display: flex;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.paper-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-
-
-.paper-thumb {
-  width: 180px;
-  height: 110px;
-  margin-right: 15px;
-  flex-shrink: 0;
-
-  object-fit: contain;
-  background-color: #fff;
-
-  border-radius: 5px;
-  border: 1px solid #eaeaea;
-}
-
-
-
-
-.paper-content {
-  flex: 1;
-}
-
-
-.paper-title {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  line-height: 1.4;
-  color: #333;
-  display: inline;
-  vertical-align: middle;
-  margin-right: 10px;
-}
-
-.paper-links {
-  display: inline;
-  vertical-align: middle;
-}
-
-.paper-links a {
-  margin-left: 4px;
-  padding: 1px 4px;
-  border: 1px solid #0066cc;
-  color: #0066cc;
-  background: transparent;
-  border-radius: 3px;
-  font-size: 10px;
-  line-height: 1.2;
-  font-weight: normal;
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  top: -1px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.paper-links a:hover {
-  background: #4da6ff;
-  color: #ffffff;
-  text-decoration: none;
-}
-
-
-
-
-
-/* 元数据：作者、期刊、分区、奖励 */
-.paper-meta {
-  font-size: 14px;
-  margin: 4px 0;  /* 减小上下间距 */
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.paper-authors {
-  font-size: 15px;
-  /*font-style: italic;*/
-  color: #333;
-  margin-right: 15px;
-  margin-bottom: 4px;
-  flex-basis: 100%; /* 作者占一行 */
-}
-
-.paper-venue, .paper-venue-tag, .paper-award {
-  display: inline-flex;
-  margin-right: 10px;
-  margin-bottom: 4px;
-  align-items: center;
-}
-
-.paper-venue {
-  color: #0066cc;
-}
-
-.paper-venue-tag {
-  background: #e7f3ff;
-  color: #004085;
-  font-size: 12px;
-  padding: 2px 6px;
-  border-radius: 5px;
-}
-
-.paper-award {
-  background: #d4edda;
-  color: #155724;
-  font-size: 12px;
-  padding: 2px 6px;
-  border-radius: 5px;
-}
-
-.author-symbol-note {
-  font-size: 12px;
-  color: #666;
-  margin: -2px 0 12px 0; /* 上下分别 4px / 12px */
-  line-height: 1.2;
-}
-
-
-/* 摘要 */
-.paper-abstract {
-  font-size: 13px;
-  color: #444;
-  margin-top: 4px;
-  line-height: 1.3;
-}
-
-
-/* 论文列表样式 */
-.contentblock-item {
-  background: #f8f9fa;
-  padding: 15px 15px 15px 30px; /* 上右下左，左边留30px空 */
-  margin: 20px 0;               /* 上下边距稍宽 */
-  border-radius: 10px;
-  text-align: left;             /* 内容左对齐 */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contentblock-item ul {
-  margin: 0;
-  padding-left: 0;          /* 取消 ul 自身的内边距 */
-  list-style-position: inside; /* 符号在容器内 */
-}
-
-    .contentblock-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-
-
-
-.news-item {
-  display: flex;
-  margin-bottom: 10px;
-  padding: 2px 0 2px 20px; /* 左边加 20px 内边距，右移内容 */
-  background: transparent;
-  border-bottom: none;
-}
-
-.news-date {
-  font-weight: bold;
-  color: #0066cc;
-  width: 100px;
-  flex-shrink: 0;
-  text-align: left;
-}
-
-.news-content {
-  flex: 1;
-  color: #333;
-  line-height: 1.4;
-}
-
-
-
-
-.research-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-top: 15px;
-}
-
-.research-item {
-  background: #f8f9fa;
-  padding: 10px 13px;
-  border-radius: 10px;
-  border-left: 2px solid #0066cc;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.research-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-
-.research-item h3 {
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #0066cc;
-}
-
-.research-item p {
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 4px;
-}
-
-
-.research-item .collab {
-  font-size: 13px;
-  font-weight: 500;
-  color: #1a73e8;
-  margin-top: 6px;
-  transition: color 0.2s ease, font-weight 0.2s ease;
-}
-
-
-.research-item .collab:hover {
-  color: #003366;
-}
-
-
-.collab-link {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px dashed #999;
-  transition: color 0.2s ease, border-bottom-color 0.2s ease;
-}
-
-.collab-link:hover {
-  color: #003366;
-  border-bottom-color: #003366;
-   font-weight: 600;
-}
-
-
-
-
-
-
-
-    /* 响应式设计 */
-    @media (max-width: 768px) {
-      .nav-container {
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .nav-item {
-        font-size: 14px;
-      }
-
-      .profile-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .profile-info h1 {
-        font-size: 28px;
-      }
-
-      .news-item {
-        flex-direction: column;
-      }
-
-      .news-date {
-        width: auto;
-        margin-bottom: 5px;
-      }
-
-      .main-content {
-        padding: 0 15px;
-      }
-
-      .section h2 {
-        font-size: 24px;
-      }
-    }
-
-    /* 滚动条样式 */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #0066cc;
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #004499;
-    }
-  </style>
-<meta name="generator" content="Hexo 8.0.0"></head>
+</script>
 <body>
-  <!-- 导航栏 -->
-  <nav class="nav-menu">
-<div class="nav-container">
-  <a class="nav-item" onclick="scrollToSection('about')" data-zh="关于我" data-en="About Me">关于我</a>
-  <a class="nav-item" onclick="scrollToSection('news')" data-zh="最新动态" data-en="News">最新动态</a>
-  <a class="nav-item" onclick="scrollToSection('publications')" data-zh="学术论文" data-en="Publications">学术论文</a>
-  <a class="nav-item" onclick="scrollToSection('research')" data-zh="研究方向" data-en="Research">学术论文</a>
-  <a class="nav-item" onclick="scrollToSection('admissions')" data-zh="招生信息" data-en="Admissions Info">招生信息</a>
-  <a class="nav-item" onclick="scrollToSection('teaching')" data-zh="讲授课程" data-en="Teaching">讲授课程</a>
-<!--  <a class="nav-item" onclick="scrollToSection('honors')" data-zh="荣誉奖项" data-en="Honors">荣誉奖项</a>-->
-  <a class="nav-item" onclick="scrollToSection('contact')" data-zh="联系我" data-en="Contact">联系我</a>
-  <a class="nav-item language-btn" onclick="toggleLanguage()" data-lang="zh">
-  中 / EN
-</a>
-</div>
-
-  </nav>
-
-  <!-- 主要内容 -->
-  <div class="main-content">
-
-
-<section id="about" class="section">
-  <div class="profile-section">
-    <!-- 左侧头像 + 姓名职称 -->
-    <div class="profile-left">
-      <div class="profile-image">
-        <img src="./fig/yihong.jpg" alt="个人照片">
-      </div>
-      <h1 data-zh="曹意宏" data-en="Yihong Cao">曹意宏</h1>
-      <h3 data-zh="工学博士｜讲师" data-en="Ph.D. | Lecturer">工学博士｜讲师</h3>
+<!-- 导航栏 -->
+<nav class="nav-menu">
+    <div class="nav-container">
+        <a class="nav-item" onclick="scrollToSection('about')" data-zh="关于我" data-en="About Me">关于我</a>
+        <a class="nav-item" onclick="scrollToSection('news')" data-zh="最新动态" data-en="News">最新动态</a>
+        <a class="nav-item" onclick="scrollToSection('publications')" data-zh="学术论文"
+           data-en="Publications">学术论文</a>
+        <a class="nav-item" onclick="scrollToSection('research')" data-zh="研究方向" data-en="Research">研究方向</a>
+        <a class="nav-item" onclick="scrollToSection('admissions')" data-zh="招生信息"
+           data-en="Admissions Info">招生信息</a>
+        <a class="nav-item" onclick="scrollToSection('teaching')" data-zh="讲授课程" data-en="Teaching">讲授课程</a>
+        <!--  <a class="nav-item" onclick="scrollToSection('honors')" data-zh="荣誉奖项" data-en="Honors">荣誉奖项</a>-->
+        <a class="nav-item" onclick="scrollToSection('contact')" data-zh="联系我" data-en="Contact">联系我</a>
+        <a class="nav-item language-btn" onclick="toggleLanguage()" data-lang="zh">
+            中 / EN
+        </a>
     </div>
 
-    <!-- 右侧简介 -->
-    <div class="profile-right">
-      <div class="profile-info-item">
-        <i class="fas fa-university"></i>
-        <span data-zh="湖南师范大学 教育科学学院 教育技术系"
-              data-en="Department of Educational Technology, Faculty of Education, Hunan Normal University">
+</nav>
+
+<!-- 主要内容 -->
+<div class="main-content">
+
+
+    <section id="about" class="section">
+        <div class="profile-section">
+            <!-- 左侧头像 + 姓名职称 -->
+            <div class="profile-left">
+                <div class="profile-image">
+                    <img src="./fig/yihong.jpg" alt="个人照片" loading="lazy">
+                </div>
+                <h1 data-zh="曹意宏" data-en="Yihong Cao">曹意宏</h1>
+                <h3 data-zh="工学博士｜讲师" data-en="Ph.D. | Lecturer">工学博士｜讲师</h3>
+            </div>
+
+            <!-- 右侧简介 -->
+            <div class="profile-right">
+                <div class="profile-info-item">
+                    <i class="fas fa-university"></i>
+                    <span data-zh="湖南师范大学 教育科学学院 教育技术系"
+                          data-en="Department of Educational Technology, Faculty of Education, Hunan Normal University">
               湖南师范大学 教育科学学院 教育技术系
         </span>
-      </div>
-      <div class="profile-info-item">
-        <i class="fas fa-calendar-alt"></i>
-        <span data-zh="出生年月: 1997年01月" data-en="Born: 1997-01">出生年月: 1997年01月</span>
-      </div>
-      <div class="profile-info-item">
-        <i class="fas fa-map-marker-alt"></i>
-        <span data-zh="地址: 湖南省长沙市" data-en="Address: Changsha, Hunan, China">地址: 湖南省长沙市</span>
-      </div>
+                </div>
+                <div class="profile-info-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span data-zh="出生年月: 1997年01月" data-en="Born: 1997-01">出生年月: 1997年01月</span>
+                </div>
+                <div class="profile-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span data-zh="地址: 湖南省长沙市"
+                          data-en="Address: Changsha, Hunan, China">地址: 湖南省长沙市</span>
+                </div>
 
-      <p class="profile-intro" data-zh="您好！我是曹意宏，工学博士，现为湖南师范大学教育科学学院教育技术系讲师。我的研究兴趣包括人工智能、计算机视觉及其与智能教育的交叉领域，重点关注视觉感知、模型自适应与多模态学习。"
-         data-en="I am Yihong Cao, Ph.D., currently a lecturer at the Department of Educational Technology, Faculty of Education, Hunan Normal University. My research interests include artificial intelligence, computer vision, and their intersections with intelligent education, with a particular focus on visual perception, model adaptation, and multimodal learning.">
-         您好！我是曹意宏，工学博士，现为湖南师范大学教育科学学院教育技术系讲师。我的研究兴趣包括人工智能、计算机视觉及其与智能教育的交叉领域，重点关注视觉感知、模型自适应与多模态学习。
-      </p>
+                <p class="profile-intro"
+                   data-zh="您好！我是曹意宏，工学博士，现为湖南师范大学教育科学学院教育技术系讲师。我的研究兴趣包括人工智能、计算机视觉及其与智能教育的交叉领域，重点关注视觉感知、模型自适应与多模态学习。"
+                   data-en="I am Yihong Cao, Ph.D., currently a lecturer at the Department of Educational Technology, Faculty of Education, Hunan Normal University. My research interests include artificial intelligence, computer vision, and their intersections with intelligent education, with a particular focus on visual perception, model adaptation, and multimodal learning.">
+                    您好！我是曹意宏，工学博士，现为湖南师范大学教育科学学院教育技术系讲师。我的研究兴趣包括人工智能、计算机视觉及其与智能教育的交叉领域，重点关注视觉感知、模型自适应与多模态学习。
+                </p>
 
-      <div class="contact-links">
-        <a href="mailto:yihongcao@hunnu.edu.cn">
-          <i class="fas fa-envelope"></i>
-          <span data-zh="邮箱" data-en="Email">Email</span>
-        </a>
-        <a href="https://github.com/yihong-97" target="_blank">
-          <i class="fab fa-github"></i>
-          <span data-zh="GitHub" data-en="GitHub">GitHub</span>
-        </a>
-        <a href="https://scholar.google.com/citations?user=j3364z8AAAAJ&hl=zh-CN" target="_blank">
-          <i class="fas fa-graduation-cap"></i>
-          <span data-zh="谷歌学术" data-en="Google Scholar">Google Scholar</span>
-        </a>
-        <a href="https://jky.hunnu.edu.cn/info/1085/4054.htm" target="_blank">
-          <i class="fas fa-university"></i>
-          <span data-zh="学校主页" data-en="School Homepage">School Homepage</span>
-        </a>
-        <a href="/files/cv.pdf" target="_blank">
-          <i class="fas fa-file-alt"></i>
-          <span data-zh="简历" data-en="CV">CV</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
+                <div class="contact-links">
+                    <a href="mailto:yihongcao@hunnu.edu.cn">
+                        <i class="fas fa-envelope"></i>
+                        <span data-zh="邮箱" data-en="Email">Email</span>
+                    </a>
+                    <a href="https://github.com/yihong-97" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span data-zh="GitHub" data-en="GitHub">GitHub</span>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=j3364z8AAAAJ&hl=zh-CN" target="_blank">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span data-zh="谷歌学术" data-en="Google Scholar">Google Scholar</span>
+                    </a>
+                    <a href="https://jky.hunnu.edu.cn/info/1085/4054.htm" target="_blank">
+                        <i class="fas fa-university"></i>
+                        <span data-zh="学校主页" data-en="School Homepage">School Homepage</span>
+                    </a>
+                    <a href="/files/cv.pdf" target="_blank">
+                        <i class="fas fa-file-alt"></i>
+                        <span data-zh="简历" data-en="CV">CV</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <!-- News Section -->
     <section id="news" class="section">
-      <h2 data-zh="🔥 最新动态" data-en="🔥 News">🔥 最新动态</h2>
+        <h2 data-zh="🔥 最新动态" data-en="🔥 News">🔥 最新动态</h2>
 
-            <div class="news-item">
-<div class="news-date">2025.10</div>
-<div class="news-content"
-     data-zh="带领学生团队“掌控未来”在“华为杯”第七届中国研究生人工智能创新大赛决赛入围全国十五强，获一等奖，并荣获优秀指导老师奖。"
-     data-en="Led the student team 'Mastering the Future' to reach the top 15 in the 7th China Graduate AI Innovation Competition (Huawei Cup) finals, winning first prize and the Outstanding Mentor Award.">
-带领学生团队“掌控未来”在“华为杯”第七届中国研究生人工智能创新大赛决赛入围全国十五强，获一等奖，并荣获优秀指导老师。
-</div>
-
-
-</div>
-
-      <div class="news-item">
-  <div class="news-date">2025.06</div>
-<div class="news-content"
-     data-zh="最新论文《Unlocking Constraints: Source-Free Occlusion-Aware Seamless Segmentation》被国际顶级计算机视觉会议 ICCV 2025（CCF-A 类）接收。"
-     data-en="Our latest paper 'Unlocking Constraints: Source-Free Occlusion-Aware Seamless Segmentation' was accepted at ICCV 2025, a top-tier international computer vision conference.">
-最新论文《Unlocking Constraints: Source-Free Occlusion-Aware Seamless Segmentation》被国际顶级计算机视觉会议 ICCV 2025（CCF-A 类）接收。
-</div>
-
-</div>
+        <div class="news-item">
+            <div class="news-date">2025.10</div>
+            <div class="news-content"
+                 data-zh="带领学生团队“掌控未来”在“华为杯”第七届中国研究生人工智能创新大赛决赛入围全国十五强，获一等奖，并荣获优秀指导老师奖。"
+                 data-en="Led the student team 'Mastering the Future' to reach the top 15 in the 7th China Graduate AI Innovation Competition (Huawei Cup) finals, winning first prize and the Outstanding Mentor Award.">
+                带领学生团队“掌控未来”在“华为杯”第七届中国研究生人工智能创新大赛决赛入围全国十五强，获一等奖，并荣获优秀指导老师。
+            </div>
 
 
+        </div>
 
-<section id="publications" class="section">
-<h2 data-zh="📝 主要学术论文" data-en="📝 Selected Publications">📝 主要学术论文</h2>
+        <div class="news-item">
+            <div class="news-date">2025.06</div>
+            <div class="news-content"
+                 data-zh="最新论文《Unlocking Constraints: Source-Free Occlusion-Aware Seamless Segmentation》被国际顶级计算机视觉会议 ICCV 2025（CCF-A 类）接收。"
+                 data-en="Our latest paper 'Unlocking Constraints: Source-Free Occlusion-Aware Seamless Segmentation' was accepted at ICCV 2025, a top-tier international computer vision conference.">
+                最新论文《Unlocking Constraints: Source-Free Occlusion-Aware Seamless Segmentation》被国际顶级计算机视觉会议
+                ICCV 2025（CCF-A 类）接收。
+            </div>
 
-<!-- 符号说明 -->
-  <div class="author-symbol-note"
-       data-zh="<sup>*</sup> 相同贡献 &nbsp;&nbsp; <sup>†</sup> 通讯作者"
-       data-en="<sup>*</sup> Equal contribution &nbsp;&nbsp; <sup>†</sup> Corresponding author">
-    <sup>*</sup> 相同贡献 &nbsp;&nbsp; <sup>†</sup> 通讯作者
-  </div>
+        </div>
+    </section>
+
+    <section id="publications" class="section">
+        <h2 data-zh="📝 主要学术论文" data-en="📝 Selected Publications">📝 主要学术论文</h2>
+
+        <!-- 符号说明 -->
+        <div class="author-symbol-note"
+             data-zh="<sup>*</sup> 相同贡献 &nbsp;&nbsp; <sup>†</sup> 通讯作者"
+             data-en="<sup>*</sup> Equal contribution &nbsp;&nbsp; <sup>†</sup> Corresponding author">
+            <sup>*</sup> 相同贡献 &nbsp;&nbsp; <sup>†</sup> 通讯作者
+        </div>
 
 
-
-  <!-- Paper 1 -->
-  <div class="paper-item">
-    <img class="paper-thumb" src="fig/Img_UNLOCK_ICCV25.jpg" alt="Img_UNLOCK_ICCV25">
-    <div class="paper-content">
-      <div class="paper-title">
-        Unlocking Constraints: Source-Free Occlusion-Aware Seamless Segmentation
-        <span class="paper-links">
-          <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Cao_Unlocking_Constraints_Source-Free_Occlusion-Aware_Seamless_Segmentation_ICCV_2025_paper.html" target="_blank" data-zh="论文" data-en="Paper">论文</a>
+        <!-- Paper 1 -->
+        <div class="paper-item">
+            <img class="paper-thumb" src="fig/Img_UNLOCK_ICCV25.jpg" alt="Img_UNLOCK_ICCV25" loading="lazy">
+            <div class="paper-content">
+                <div class="paper-title">
+                    Unlocking Constraints: Source-Free Occlusion-Aware Seamless Segmentation
+                    <span class="paper-links">
+          <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Cao_Unlocking_Constraints_Source-Free_Occlusion-Aware_Seamless_Segmentation_ICCV_2025_paper.html"
+             target="_blank" data-zh="论文" data-en="Paper">论文</a>
           <a href="https://github.com/yihong-97/UNLOCK" target="_blank" data-zh="代码" data-en="Code">代码</a>
         </span>
-      </div>
-      <div class="paper-meta">
+                </div>
+                <div class="paper-meta">
         <span class="paper-authors"
-          data-zh="曹意宏<sup>*</sup>, 张嘉明<sup>*</sup>, 时昊, 彭鲲宇, 张羽宏宣, 杨恺伦<sup>†</sup> , 张辉<sup>†</sup> "
-          data-en="Yihong Cao, Jiaming Zhang, Xu Zheng, Hao Shi, Kunyu Peng, Hang Liu, Kailun Yang<sup>†</sup> , Hui Zhang<sup>†</sup> ">
+              data-zh="曹意宏<sup>*</sup>, 张嘉明<sup>*</sup>, 时昊, 彭鲲宇, 张羽宏宣, 杨恺伦<sup>†</sup> , 张辉<sup>†</sup> "
+              data-en="Yihong Cao, Jiaming Zhang, Xu Zheng, Hao Shi, Kunyu Peng, Hang Liu, Kailun Yang<sup>†</sup> , Hui Zhang<sup>†</sup> ">
           曹意宏<sup>*</sup>, 张嘉明<sup>*</sup>, 时昊, 彭鲲宇, 张羽宏宣, 张辉<sup>†</sup>, 杨恺伦<sup>†</sup>
         </span>
-        <span class="paper-venue">
+                    <span class="paper-venue">
           Proceedings of the IEEE/CVF Conference on Computer Vision (ICCV), 2025: 8961-8972
         </span>
-<span class="paper-venue-tag" data-zh="国际视觉顶会，CCF-A" data-en="Top-tier Computer Vision Conference (CCF-A)">
+                    <span class="paper-venue-tag" data-zh="国际视觉顶会，CCF-A"
+                          data-en="Top-tier Computer Vision Conference (CCF-A)">
   国际视觉顶会，CCF-A
 </span>
 
-      </div>
-<!--      <div class="paper-abstract"-->
-<!--        data-zh="本文提出了一种遮挡感知的无缝分割方法，面向复杂场景下的完整目标感知。"-->
-<!--        data-en="This paper proposes an occlusion-aware seamless segmentation method for holistic object perception in complex scenes.">-->
-<!--        本文提出了一种遮挡感知的无缝分割方法，面向复杂场景下的完整目标感知。-->
-<!--      </div>-->
-    </div>
-  </div>
+                </div>
+                <!--      <div class="paper-abstract"-->
+                <!--        data-zh="本文提出了一种遮挡感知的无缝分割方法，面向复杂场景下的完整目标感知。"-->
+                <!--        data-en="This paper proposes an occlusion-aware seamless segmentation method for holistic object perception in complex scenes.">-->
+                <!--        本文提出了一种遮挡感知的无缝分割方法，面向复杂场景下的完整目标感知。-->
+                <!--      </div>-->
+            </div>
+        </div>
 
-  <!-- Paper 2 -->
-  <div class="paper-item">
-    <img class="paper-thumb" src="fig/Img_OASS_ECCV24.png" alt="Img_OASS_ECCV24">
-    <div class="paper-content">
-      <div class="paper-title">
-        Occlusion-Aware Seamless Segmentation
-        <span class="paper-links">
-          <a href="https://link.springer.com/content/pdf/10.1007/978-3-031-72655-2_8.pdf" target="_blank" data-zh="论文" data-en="Paper">论文</a>
+        <!-- Paper 2 -->
+        <div class="paper-item">
+            <img class="paper-thumb" src="fig/Img_OASS_ECCV24.png" alt="Img_OASS_ECCV24" loading="lazy">
+            <div class="paper-content">
+                <div class="paper-title">
+                    Occlusion-Aware Seamless Segmentation
+                    <span class="paper-links">
+          <a href="https://link.springer.com/content/pdf/10.1007/978-3-031-72655-2_8.pdf" target="_blank" data-zh="论文"
+             data-en="Paper">论文</a>
           <a href="https://github.com/yihong-97/OASS/" target="_blank" data-zh="代码" data-en="Code">代码</a>
         </span>
-      </div>
-      <div class="paper-meta">
+                </div>
+                <div class="paper-meta">
         <span class="paper-authors"
-          data-zh="曹意宏, 张嘉明, 时昊, 彭鲲宇, 张羽宏宣, 张辉<sup>†</sup>, Rainer Stiefelhagen, 杨恺伦<sup>†</sup>"
-          data-en="Yihong Cao, Jiaming Zhang, Hao Shi, Kunyu Peng, Yuhongxuan Zhang, Hui Zhang<sup>†</sup>, Rainer Stiefelhagen, Kailun Yang<sup>†</sup>">
+              data-zh="曹意宏, 张嘉明, 时昊, 彭鲲宇, 张羽宏宣, 张辉<sup>†</sup>, Rainer Stiefelhagen, 杨恺伦<sup>†</sup>"
+              data-en="Yihong Cao, Jiaming Zhang, Hao Shi, Kunyu Peng, Yuhongxuan Zhang, Hui Zhang<sup>†</sup>, Rainer Stiefelhagen, Kailun Yang<sup>†</sup>">
           曹意宏, 张嘉明, 时昊, 彭鲲宇, 张羽宏宣, 张辉<sup>†</sup>, Rainer Stiefelhagen, 杨恺伦<sup>†</sup>
         </span>
-        <span class="paper-venue">
+                    <span class="paper-venue">
           European Conference on Computer Vision (ECCV), 2024: 129-147
         </span>
-<span class="paper-venue-tag" data-zh="国际视觉顶会，CAAI-A" data-en="Top-tier Computer Vision Conference (CAAI-A)">
+                    <span class="paper-venue-tag" data-zh="国际视觉顶会，CAAI-A"
+                          data-en="Top-tier Computer Vision Conference (CAAI-A)">
   国际视觉顶会，CAAI-A
 </span>
-      </div>
+                </div>
 
-    </div>
-  </div>
+            </div>
+        </div>
 
-  <!-- Paper 2 -->
-  <div class="paper-item">
-    <img class="paper-thumb" src="fig/Img_ARAS_TCSVT23.jpg" alt="Img_ARAS_TCSVT23">
-    <div class="paper-content">
-      <div class="paper-title">
-        Adaptive Refining-Aggregation-Separation Framework for Unsupervised Domain Adaptation Semantic Segmentation
-        <span class="paper-links">
-          <a href="https://ieeexplore.ieee.org/abstract/document/10040699/" target="_blank" data-zh="论文" data-en="Paper">论文</a>
+        <!-- Paper 2 -->
+        <div class="paper-item">
+            <img class="paper-thumb" src="fig/Img_ARAS_TCSVT23.jpg" alt="Img_ARAS_TCSVT23" loading="lazy">
+            <div class="paper-content">
+                <div class="paper-title">
+                    Adaptive Refining-Aggregation-Separation Framework for Unsupervised Domain Adaptation Semantic
+                    Segmentation
+                    <span class="paper-links">
+          <a href="https://ieeexplore.ieee.org/abstract/document/10040699/" target="_blank" data-zh="论文"
+             data-en="Paper">论文</a>
           <a href="https://github.com/yihong-97/ARAS" target="_blank" data-zh="代码" data-en="Code">代码</a>
         </span>
-      </div>
-      <div class="paper-meta">
+                </div>
+                <div class="paper-meta">
         <span class="paper-authors"
-          data-zh="曹意宏, 张辉<sup>†</sup>, 卢笑, 陈煜嵘, 肖正, 王耀南"
-          data-en="Yihong Cao, Hui Zhang<sup>†</sup>, Xiao Lu, Yurong Chen, Zheng Xiao, Yaonan Wang">
+              data-zh="曹意宏, 张辉<sup>†</sup>, 卢笑, 陈煜嵘, 肖正, 王耀南"
+              data-en="Yihong Cao, Hui Zhang<sup>†</sup>, Xiao Lu, Yurong Chen, Zheng Xiao, Yaonan Wang">
           曹意宏, 张辉<sup>†</sup>, 卢笑, 陈煜嵘, 肖正, 王耀南
         </span>
-        <span class="paper-venue">
+                    <span class="paper-venue">
           IEEE Transactions on Circuits and Systems for Video Technology, 2023, 33(8): 3822-3832.
         </span>
-        <span class="paper-venue-tag"
-          data-zh="中科院SCI一区，TOP期刊"
-          data-en="SCI Q1, TOP Journal">
+                    <span class="paper-venue-tag"
+                          data-zh="中科院SCI一区，TOP期刊"
+                          data-en="SCI Q1, TOP Journal">
           中科院SCI一区，TOP期刊
         </span>
-      </div>
-    </div>
-  </div>
+                </div>
+            </div>
+        </div>
 
-  <!-- Paper 3 -->
-  <div class="paper-item">
-    <img class="paper-thumb" src="fig/Img_IAPC_TIV24.jpg" alt="Img_IAPC_TIV24">
-    <div class="paper-content">
-      <div class="paper-title">
-        Towards Source-free Domain Adaptive Semantic Segmentation via Importance-aware and Prototype-contrast Learning
-        <span class="paper-links">
-          <a href="https://ieeexplore.ieee.org/abstract/document/10040699" target="_blank" data-zh="论文" data-en="Paper">论文</a>
+        <!-- Paper 3 -->
+        <div class="paper-item">
+            <img class="paper-thumb" src="fig/Img_IAPC_TIV24.jpg" alt="Img_IAPC_TIV24" loading="lazy">
+            <div class="paper-content">
+                <div class="paper-title">
+                    Towards Source-free Domain Adaptive Semantic Segmentation via Importance-aware and
+                    Prototype-contrast Learning
+                    <span class="paper-links">
+          <a href="https://ieeexplore.ieee.org/abstract/document/10485494" target="_blank" data-zh="论文"
+             data-en="Paper">论文</a>
           <a href="https://github.com/yihong-97/Source-free-IAPC" target="_blank" data-zh="代码" data-en="Code">代码</a>
         </span>
-      </div>
-      <div class="paper-meta">
+                </div>
+                <div class="paper-meta">
         <span class="paper-authors"
-          data-zh="曹意宏, 张辉<sup>†</sup>, 卢笑, 肖正, 杨恺伦, 王耀南"
-          data-en="Yihong Cao, Hui Zhang<sup>†</sup>, Xiao Lu, Zheng Xiao, Kailun Yang, Yaonan Wang">
-          曹意宏, 张辉, 卢笑, 肖正, 杨恺伦, 王耀南
+              data-zh="曹意宏, 张辉<sup>†</sup>, 卢笑, 肖正, 杨恺伦, 王耀南"
+              data-en="Yihong Cao, Hui Zhang<sup>†</sup>, Xiao Lu, Zheng Xiao, Kailun Yang, Yaonan Wang">
+          曹意宏, 张辉<sup>†</sup>, 卢笑, 肖正, 杨恺伦, 王耀南
         </span>
-        <span class="paper-venue">
+                    <span class="paper-venue">
           IEEE Transactions on Intelligent Vehicles, 2025, 10(4): 2736–2747.
         </span>
-        <span class="paper-venue-tag"
-          data-zh="中科院一区，TOP期刊"
-          data-en="CAS Q1, TOP Journal">
+                    <span class="paper-venue-tag"
+                          data-zh="中科院一区，TOP期刊"
+                          data-en="CAS Q1, TOP Journal">
           中科院一区，TOP期刊
         </span>
-      </div>
-    </div>
-  </div>
+                </div>
+            </div>
+        </div>
 
-  <!-- Paper 4 -->
-  <div class="paper-item">
-    <img class="paper-thumb" src="fig/Img_STICI_CVPR22.jpg" alt="Img_STICI_CVPR22">
-    <div class="paper-content">
-      <div class="paper-title">
-        Video Shadow Detection via Spatio-Temporal Interpolation Consistency Training
-        <span class="paper-links">
-          <a href="https://openaccess.thecvf.com/content/CVPR2022/html/Lu_Video_Shadow_Detection_via_Spatio-Temporal_Interpolation_Consistency_Training_CVPR_2022_paper.html" target="_blank" data-zh="论文" data-en="Paper">论文</a>
+        <!-- Paper 4 -->
+        <div class="paper-item">
+            <img class="paper-thumb" src="fig/Img_STICI_CVPR22.jpg" alt="Img_STICI_CVPR22" loading="lazy">
+            <div class="paper-content">
+                <div class="paper-title">
+                    Video Shadow Detection via Spatio-Temporal Interpolation Consistency Training
+                    <span class="paper-links">
+          <a href="https://openaccess.thecvf.com/content/CVPR2022/html/Lu_Video_Shadow_Detection_via_Spatio-Temporal_Interpolation_Consistency_Training_CVPR_2022_paper.html"
+             target="_blank" data-zh="论文" data-en="Paper">论文</a>
           <a href="https://github.com/yihong-97/STICT" target="_blank" data-zh="代码" data-en="Code">代码</a>
         </span>
-      </div>
-      <div class="paper-meta">
+                </div>
+                <div class="paper-meta">
         <span class="paper-authors"
-          data-zh="卢笑, 曹意宏, 刘胜, 龙成江, 陈子佩, 周炫余, 杨易旻, 肖春霞<sup>†</sup>"
-          data-en="Xiao Lu, Yihong Cao, Sheng Liu, Chengjiang Long, Zipei Chen, Xuanyu Zhou, Yimin Yang, Chunxia Xiao<sup>†</sup>">
+              data-zh="卢笑, 曹意宏, 刘胜, 龙成江, 陈子佩, 周炫余, 杨易旻, 肖春霞<sup>†</sup>"
+              data-en="Xiao Lu, Yihong Cao, Sheng Liu, Chengjiang Long, Zipei Chen, Xuanyu Zhou, Yimin Yang, Chunxia Xiao<sup>†</sup>">
           卢笑, 曹意宏, 刘胜, 龙成江, 陈子佩, 周炫余, 杨易旻, 肖春霞<sup>†</sup>
         </span>
-        <span class="paper-venue">
+                    <span class="paper-venue">
           IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2022: 3116-3125
         </span>
-<span class="paper-venue-tag" data-zh="国际视觉顶会，CCF-A" data-en="Top-tier Computer Vision Conference (CCF-A)">
+                    <span class="paper-venue-tag" data-zh="国际视觉顶会，CCF-A"
+                          data-en="Top-tier Computer Vision Conference (CCF-A)">
   国际视觉顶会，CCF-A
 </span>
-      </div>
+                </div>
 
-    </div>
-  </div>
+            </div>
+        </div>
 
-<div class="paper-item">
-  <img class="paper-thumb" src="fig/Img_SaliencyDRL2021.jpg" alt="Img_SaliencyDRL2021">
-  <div class="paper-content">
-    <div class="paper-title">
-      基于深度强化学习的两阶段显著性目标检测
-      <span class="paper-links">
-        <a href="http://jemi.cnjournals.com/jemi/article/abstract/20210604" target="_blank" data-zh="论文" data-en="Paper">论文</a>
+        <div class="paper-item">
+            <img class="paper-thumb" src="fig/Img_SaliencyDRL2021.jpg" alt="Img_SaliencyDRL2021" loading="lazy">
+            <div class="paper-content">
+                <div class="paper-title">
+                    基于深度强化学习的两阶段显著性目标检测
+                    <span class="paper-links">
+        <a href="http://jemi.cnjournals.com/jemi/article/abstract/20210604" target="_blank" data-zh="论文"
+           data-en="Paper">论文</a>
       </span>
-    </div>
-    <div class="paper-meta">
+                </div>
+                <div class="paper-meta">
       <span class="paper-authors"
             data-zh="卢笑, 曹意宏, 周炫余<sup>†</sup>, 王耀南"
             data-en="Xiao Lu, Yihong Cao, Xuanyu Zhou<sup>†</sup>, Yaonan Wang">
         卢笑, 曹意宏, 周炫余<sup>†</sup>, 王耀南
       </span>
-      <span class="paper-venue">
+                    <span class="paper-venue">
         电子测量与仪器学报, 2021, 35(6): 34-42
       </span>
-            <span class="paper-award"
-            data-zh="领跑者5000-中国精品科技期刊顶尖学术论文"
-            data-en="Leading 5000 – Top Research Articles from China's Premier Science & Technology Journals">
+                    <span class="paper-award"
+                          data-zh="领跑者5000-中国精品科技期刊顶尖学术论文"
+                          data-en="Leading 5000 – Top Research Articles from China's Premier Science & Technology Journals">
         领跑者5000-中国精品科技期刊顶尖学术论文
       </span>
-    </div>
-  </div>
-</div>
+                </div>
+            </div>
+        </div>
 
 
-</section>
+    </section>
 
 
-<section id="research" class="section">
-  <h2 data-zh="🔬 研究方向" data-en="🔬 Research Directions">🔬 研究方向</h2>
+    <section id="research" class="section">
+        <h2 data-zh="🔬 研究方向" data-en="🔬 Research Directions">🔬 研究方向</h2>
 
-  <div class="research-grid">
+        <div class="research-grid">
 
-    <!-- 多模态智能教育测评 -->
-    <div class="research-item">
-      <h3 data-zh="多模态智能教育测评"
-          data-en="Multimodal Intelligent Educational Assessment">
-        多模态智能教育测评
-      </h3>
-      <p data-zh="围绕智能教育场景，融合视觉、语言与行为等多模态信息，研究学生实验过程与个性化学习行为的理解与建模方法，构建智能化教育测评系统与设备。"
-         data-en="Focusing on intelligent education scenarios, this direction integrates visual, linguistic, and behavioral modalities to model students’ experimental processes and personalized learning behaviors, enabling intelligent assessment under low-annotation conditions.">
-        围绕智能教育场景，融合视觉、语言与行为等多模态信息，研究学生实验过程与个性化学习行为的理解与建模方法，构建智能化教育测评系统与设备。
-      </p>
-    </div>
+            <!-- 多模态智能教育测评 -->
+            <div class="research-item">
+                <h3 data-zh="多模态智能教育测评"
+                    data-en="Multimodal Intelligent Educational Assessment">
+                    多模态智能教育测评
+                </h3>
+                <p data-zh="围绕智能教育场景，融合视觉、语言与行为等多模态信息，研究学生实验过程与个性化学习行为的理解与建模方法，构建智能化教育测评系统与设备。"
+                   data-en="Focusing on intelligent education scenarios, this direction integrates visual, linguistic, and behavioral modalities to model students’ experimental processes and personalized learning behaviors, enabling intelligent assessment under low-annotation conditions.">
+                    围绕智能教育场景，融合视觉、语言与行为等多模态信息，研究学生实验过程与个性化学习行为的理解与建模方法，构建智能化教育测评系统与设备。
+                </p>
+            </div>
 
-    <!-- 跨领域场景自适应 -->
-    <div class="research-item">
-      <h3 data-zh="跨领域场景自适应"
-          data-en="Cross-Domain Scene Adaptation">
-        跨领域场景自适应
-      </h3>
-      <p data-zh="研究视觉与场景感知模型在不同环境、设备及数据分布下的自适应与泛化问题，提升模型在跨场景应用中的鲁棒性与可靠性。"
-         data-en="This direction focuses on adaptation and generalization of visual and scene perception models across diverse environments, sensing platforms, and data distributions, with the goal of improving robustness and reliability in cross-scene applications.">
-        研究视觉与场景感知模型在不同环境、设备及数据分布下的自适应与泛化问题，提升模型在跨场景应用中的鲁棒性与可靠性。
-      </p>
-    </div>
+            <!-- 跨领域场景自适应 -->
+            <div class="research-item">
+                <h3 data-zh="跨领域场景自适应"
+                    data-en="Cross-Domain Scene Adaptation">
+                    跨领域场景自适应
+                </h3>
+                <p data-zh="研究视觉与场景感知模型在不同环境、设备及数据分布下的自适应与泛化问题，提升模型在跨场景应用中的鲁棒性与可靠性。"
+                   data-en="This direction focuses on adaptation and generalization of visual and scene perception models across diverse environments, sensing platforms, and data distributions, with the goal of improving robustness and reliability in cross-scene applications.">
+                    研究视觉与场景感知模型在不同环境、设备及数据分布下的自适应与泛化问题，提升模型在跨场景应用中的鲁棒性与可靠性。
+                </p>
+            </div>
 
-    <!-- 跨物种仿生感知 -->
-    <div class="research-item">
-      <h3 data-zh="跨物种仿生感知"
-          data-en="Cross-Species Bio-inspired Perception">
-        跨物种仿生感知
-      </h3>
-      <p data-zh="借鉴不同物种的感知机制与认知特性，研究仿生视觉与感知模型，为无人系统、机器人及复杂环境感知提供新的设计范式。"
-         data-en="Drawing inspiration from perceptual mechanisms and cognitive characteristics across species, this direction investigates bio-inspired visual and perception models, providing new design paradigms for unmanned systems, robotics, and perception in complex environments.">
-        借鉴不同物种的感知机制与认知特性，研究仿生视觉与感知模型，为无人系统、机器人及复杂环境感知提供新的设计范式。
-      </p>
-<p class="collab"
-   data-zh='合作学者：湖南大学 <a href="https://robotics.hnu.edu.cn/info/1176/2966.htm" target="_blank" class="collab-link">张辉 教授</a>'
-   data-en='Collaborator: <a href="https://robotics.hnu.edu.cn/info/1176/2966.htm" target="_blank" class="collab-link">Prof. Hui Zhang</a>, Hunan University'>
-  合作学者：湖南大学
-  <a href="https://robotics.hnu.edu.cn/info/1176/2966.htm"
-     target="_blank"
-     class="collab-link">
-    张辉 教授
-  </a>
-</p>
+            <!-- 跨物种仿生感知 -->
+            <div class="research-item">
+                <h3 data-zh="跨物种仿生感知"
+                    data-en="Cross-Species Bio-inspired Perception">
+                    跨物种仿生感知
+                </h3>
+                <p data-zh="借鉴不同物种的感知机制与认知特性，研究仿生视觉与感知模型，为无人系统、机器人及复杂环境感知提供新的设计范式。"
+                   data-en="Drawing inspiration from perceptual mechanisms and cognitive characteristics across species, this direction investigates bio-inspired visual and perception models, providing new design paradigms for unmanned systems, robotics, and perception in complex environments.">
+                    借鉴不同物种的感知机制与认知特性，研究仿生视觉与感知模型，为无人系统、机器人及复杂环境感知提供新的设计范式。
+                </p>
+                <p class="collab"
+                   data-zh='合作学者：湖南大学 <a href="https://robotics.hnu.edu.cn/info/1176/2966.htm" target="_blank" class="collab-link">张辉 教授</a>'
+                   data-en='Collaborator: <a href="https://robotics.hnu.edu.cn/info/1176/2966.htm" target="_blank" class="collab-link">Prof. Hui Zhang</a>, Hunan University'>
+                    合作学者：湖南大学
+                    <a href="https://robotics.hnu.edu.cn/info/1176/2966.htm"
+                       target="_blank"
+                       class="collab-link">
+                        张辉 教授
+                    </a>
+                </p>
 
-    </div>
+            </div>
 
-    <!-- 场景全面感知与解析 -->
-    <div class="research-item">
-      <h3 data-zh="场景全面感知与解析"
-          data-en="Comprehensive Scene Perception and Analysis">
-        场景全面感知与解析
-      </h3>
-      <p data-zh="面向复杂真实场景，研究融合非模态感知、实例级与语义级信息的场景解析方法，实现对遮挡、不完整目标及上下文关系的全面感知与理解。"
-         data-en="Targeting complex real-world scenes, this direction studies comprehensive scene perception and analysis by integrating amodal perception with instance-level and semantic-level information, enabling holistic understanding of occluded objects, incomplete targets, and contextual relationships.">
-        面向复杂真实场景，研究融合非模态感知、实例级与语义级信息的场景解析方法，实现对遮挡、不完整目标及上下文关系的全面感知与理解。
-      </p>
-<p class="collab"
-   data-zh='合作学者：湖南大学 <a href="https://robotics.hnu.edu.cn/info/1176/2954.htm" target="_blank" class="collab-link">杨恺伦 教授</a>'
-   data-en='Collaborator: <a href="https://robotics.hnu.edu.cn/info/1176/2954.htm" target="_blank" class="collab-link">Prof. Kailun Yang</a>, Hunan University'>
-  合作学者：湖南大学
-  <a href="https://robotics.hnu.edu.cn/info/1176/2954.htm"
-     target="_blank"
-     class="collab-link">
-    杨恺伦 教授
-  </a>
-</p>
+            <!-- 场景全面感知与解析 -->
+            <div class="research-item">
+                <h3 data-zh="场景全面感知与解析"
+                    data-en="Comprehensive Scene Perception and Analysis">
+                    场景全面感知与解析
+                </h3>
+                <p data-zh="面向复杂真实场景，研究融合非模态感知、实例级与语义级信息的场景解析方法，实现对遮挡、不完整目标及上下文关系的全面感知与理解。"
+                   data-en="Targeting complex real-world scenes, this direction studies comprehensive scene perception and analysis by integrating amodal perception with instance-level and semantic-level information, enabling holistic understanding of occluded objects, incomplete targets, and contextual relationships.">
+                    面向复杂真实场景，研究融合非模态感知、实例级与语义级信息的场景解析方法，实现对遮挡、不完整目标及上下文关系的全面感知与理解。
+                </p>
+                <p class="collab"
+                   data-zh='合作学者：湖南大学 <a href="https://robotics.hnu.edu.cn/info/1176/2954.htm" target="_blank" class="collab-link">杨恺伦 教授</a>'
+                   data-en='Collaborator: <a href="https://robotics.hnu.edu.cn/info/1176/2954.htm" target="_blank" class="collab-link">Prof. Kailun Yang</a>, Hunan University'>
+                    合作学者：湖南大学
+                    <a href="https://robotics.hnu.edu.cn/info/1176/2954.htm"
+                       target="_blank"
+                       class="collab-link">
+                        杨恺伦 教授
+                    </a>
+                </p>
 
-    </div>
+            </div>
 
-    <!-- 电推进束流实时感知与测试 -->
-    <div class="research-item">
-      <h3 data-zh="电推进束流实时感知与测试"
-          data-en="Real-Time Beam Diagnostics for Electric Propulsion">
-        电推进束流实时感知与测试
-      </h3>
-      <p data-zh="面向空间电推进系统，基于AI视觉算法，通过束流图像解耦重构参数，实现系统状态与性能的快速实时监测，支撑性能评估与溅射沉积污染防护。"
-         data-en="For space electric propulsion systems, AI-based vision algorithms decouple and reconstruct beam parameters from images to enable rapid, real-time monitoring of system status and performance, supporting performance evaluation and sputter deposition contamination protection.">
-        面向空间电推进系统，基于AI视觉算法，通过束流图像解耦重构参数，实现系统状态与性能的快速实时监测，支撑性能评估与溅射沉积污染防护。
-      </p>
-<p class="collab"
-   data-zh='合作学者：国防科技大学 <a href="#" class="collab-link collab-link--placeholder">欧阳 副教授</a>'
-   data-en='Collaborator: <a href="#" class="collab-link collab-link--placeholder">Prof. Ouyang</a>, National University of Defense Technology'>
-  合作学者：国防科技大学
-  <a href="#" class="collab-link collab-link--placeholder">
-    欧阳 副教授
-  </a>
-</p>
+            <!-- 电推进束流实时感知与测试 -->
+            <div class="research-item">
+                <h3 data-zh="电推进束流实时感知与测试"
+                    data-en="Real-Time Beam Diagnostics for Electric Propulsion">
+                    电推进束流实时感知与测试
+                </h3>
+                <p data-zh="面向空间电推进系统，基于AI视觉算法，通过束流图像解耦重构参数，实现系统状态与性能的快速实时监测，支撑性能评估与溅射沉积污染防护。"
+                   data-en="For space electric propulsion systems, AI-based vision algorithms decouple and reconstruct beam parameters from images to enable rapid, real-time monitoring of system status and performance, supporting performance evaluation and sputter deposition contamination protection.">
+                    面向空间电推进系统，基于AI视觉算法，通过束流图像解耦重构参数，实现系统状态与性能的快速实时监测，支撑性能评估与溅射沉积污染防护。
+                </p>
+                <p class="collab"
+                   data-zh='合作学者：国防科技大学 <a href="#" class="collab-link collab-link--placeholder">欧阳 副教授</a>'
+                   data-en='Collaborator: <a href="#" class="collab-link collab-link--placeholder">Prof. Ouyang</a>, National University of Defense Technology'>
+                    合作学者：国防科技大学
+                    <a href="#" class="collab-link collab-link--placeholder">
+                        欧阳 副教授
+                    </a>
+                </p>
 
-    </div>
+            </div>
 
-  </div>
-</section>
+        </div>
+    </section>
 
 
+    <section id="admissions" class="section">
+        <h2 data-zh="🎓 招生信息" data-en="🎓 Admissions Info">🎓 招生信息</h2>
 
-<section id="admissions" class="section">
-  <h2 data-zh="🎓 招生信息" data-en="🎓 Admissions Info">🎓 招生信息</h2>
+        <div class="contentblock-item">
 
-  <div class="contentblock-item">
-
-    <!-- 欢迎加入 -->
-    <p style="margin-bottom: 12px;">
-      <strong data-zh="📣 欢迎加入" data-en="📣 Welcome to Join">📣 欢迎加入：</strong>
-      <span style="display:block; text-indent:2em;"
-            data-zh="欢迎本科生和研究生加入我的科研团队，一起探索人工智能与计算机视觉在智能教育中的前沿应用。"
-            data-en="We welcome undergraduate and graduate students to join our research group to explore cutting-edge AI and computer vision applications in intelligent education.">
+            <!-- 欢迎加入 -->
+            <p style="margin-bottom: 12px;">
+                <strong data-zh="📣 欢迎加入" data-en="📣 Welcome to Join">📣 欢迎加入：</strong>
+                <span style="display:block; text-indent:2em;"
+                      data-zh="欢迎本科生和研究生加入我的科研团队，一起探索人工智能与计算机视觉在智能教育中的前沿应用。"
+                      data-en="We welcome undergraduate and graduate students to join our research group to explore cutting-edge AI and computer vision applications in intelligent education.">
         欢迎本科生和研究生加入我的科研团队，一起探索人工智能与计算机视觉在智能教育中的前沿应用。
       </span>
-    </p>
+            </p>
 
-    <!-- 可以获得 -->
-    <p style="margin-bottom: 12px;">
-      <strong data-zh="🏆 可以获得" data-en="🏆 What You Can Gain">🏆 可以获得：</strong>
-      <span style="display:block; text-indent:2em;"
-            data-zh="参与科研项目、发表高水平论文、参加国内外竞赛、参加国际顶级学术会议，提升科研能力和学术素养。"
-            data-en="Engage in research projects, publish high-level papers, participate in competitions, attend top international academic conferences, and enhance research skills and academic literacy.">
+            <!-- 可以获得 -->
+            <p style="margin-bottom: 12px;">
+                <strong data-zh="🏆 可以获得" data-en="🏆 What You Can Gain">🏆 可以获得：</strong>
+                <span style="display:block; text-indent:2em;"
+                      data-zh="参与科研项目、发表高水平论文、参加国内外竞赛、参加国际顶级学术会议，提升科研能力和学术素养。"
+                      data-en="Engage in research projects, publish high-level papers, participate in competitions, attend top international academic conferences, and enhance research skills and academic literacy.">
     参与科研项目、发表高水平论文、参加国内外竞赛、参加国际顶级学术会议，提升科研能力和学术素养。
   </span>
-      <span style="display:block; text-indent:2em;"
-            data-zh="你还将有机会与国内顶尖团队学习交流，参与合作科研项目，拓展视野并积累宝贵经验。"
-            data-en="You will also have opportunities to learn from top domestic teams, collaborate on research projects, broaden your horizons, and gain valuable experience.">
+                <span style="display:block; text-indent:2em;"
+                      data-zh="你还将有机会与国内顶尖团队学习交流，参与合作科研项目，拓展视野并积累宝贵经验。"
+                      data-en="You will also have opportunities to learn from top domestic teams, collaborate on research projects, broaden your horizons, and gain valuable experience.">
         你还将有机会与国内顶尖团队学习交流，参与合作科研项目，拓展视野并积累宝贵经验。
       </span>
-    </p>
+            </p>
 
-    <!-- 我们需要的人 -->
-    <p style="margin-bottom: 12px;">
-      <strong data-zh="🎯 我们需要的人" data-en="🎯 Who We Are Looking For">🎯 我们需要的人：</strong>
-      <span style="display:block; text-indent:2em;"
-            data-zh="热爱 AI 与视觉感知、有好奇心和探索精神的本科生或研究生。具有编程或工科基础更佳，并乐于团队合作和科研探索。"
-            data-en="Undergraduate or graduate students who are passionate about AI and visual perception, curious, and eager to explore. Those with programming or engineering background are preferred, and should enjoy teamwork and research.">
+            <!-- 我们需要的人 -->
+            <p style="margin-bottom: 12px;">
+                <strong data-zh="🎯 我们需要的人" data-en="🎯 Who We Are Looking For">🎯 我们需要的人：</strong>
+                <span style="display:block; text-indent:2em;"
+                      data-zh="热爱 AI 与视觉感知、有好奇心和探索精神的本科生或研究生。具有编程或工科基础更佳，并乐于团队合作和科研探索。"
+                      data-en="Undergraduate or graduate students who are passionate about AI and visual perception, curious, and eager to explore. Those with programming or engineering background are preferred, and should enjoy teamwork and research.">
         热爱 AI 与视觉感知、有好奇心和探索精神的本科生或研究生。具有编程或工科基础更佳，并乐于团队合作和科研探索。
       </span>
-    </p>
+            </p>
 
-  </div>
-</section>
-
-
-
-<section id="teaching" class="section">
-  <h2 data-zh="📘 讲授课程" data-en="📘 Teaching">📘 讲授课程</h2>
-
-  <div class="contentblock-item">
-    <ul>
-      <li data-zh="现代教育技术应用"
-          data-en="Applications of Modern Educational Technology">
-        现代教育技术应用
-      </li>
-
-      <li data-zh="计算思维与智能计算基础"
-          data-en="Computational Thinking and Foundations of Intelligent Computing">
-        计算思维与智能计算基础
-      </li>
-
-      <li data-zh="人工智能基础"
-          data-en="Introduction to Artificial Intelligence">
-        人工智能基础
-      </li>
-    </ul>
-  </div>
-</section>
+        </div>
+    </section>
 
 
+    <section id="teaching" class="section">
+        <h2 data-zh="📘 讲授课程" data-en="📘 Teaching">📘 讲授课程</h2>
 
-<!--    &lt;!&ndash; Honors Section &ndash;&gt;-->
-<!--    <section id="honors" class="section">-->
-<!--      <h2 data-zh="🏆 荣誉奖项" data-en="🏆 Honors and Awards">🏆 荣誉奖项</h2>-->
-<!--      <div class="news-item">-->
-<!--        <div class="news-date">2025.10:</div>-->
-<!--        <div class="news-content" data-zh="“华为杯”第七届中国研究生人工智能创新大赛决赛" data-en="The final of the 7th 'Huawei Cup' China Graduate Students' Innovation Competition in Artificial Intelligence">华为杯</div>-->
-<!--      </div>-->
+        <div class="contentblock-item">
+            <ul>
+                <li data-zh="现代教育技术应用"
+                    data-en="Applications of Modern Educational Technology">
+                    现代教育技术应用
+                </li>
 
-<!--    </section>-->
+                <li data-zh="计算思维与智能计算基础"
+                    data-en="Computational Thinking and Foundations of Intelligent Computing">
+                    计算思维与智能计算基础
+                </li>
 
-<!-- Contact Section -->
-<section id="contact" class="section">
-  <h2 data-zh="📮 联系我" data-en="📮 Contact">📮 联系我</h2>
+                <li data-zh="人工智能基础"
+                    data-en="Introduction to Artificial Intelligence">
+                    人工智能基础
+                </li>
+            </ul>
+        </div>
+    </section>
 
-  <div class="contentblock-item" style="padding: 20px 25px; margin: 25px 0;">
-    <!-- 基本信息，部分加图标 -->
-    <p style="margin-bottom: 12px;">
-      <span style="margin-right:5px;">📧</span>
-      <strong data-zh="邮箱：" data-en="Email: ">邮箱：</strong>
-      <span>yihongcao@hunnu.edu.cn</span>
-    </p>
-    <p style="margin-bottom: 12px;">
-      <span style="margin-right:5px;">🏫</span>
-      <strong data-zh="地址：" data-en="Address: ">地址：</strong>
-<span
-  data-zh="湖南省长沙市岳麓区桃子湖路教育科学学院524室"
-  data-en="Room 524, Faculty of Education, Taozihu Road, Yuelu District, Changsha, Hunan, China">
+
+    <!--    &lt;!&ndash; Honors Section &ndash;&gt;-->
+    <!--    <section id="honors" class="section">-->
+    <!--      <h2 data-zh="🏆 荣誉奖项" data-en="🏆 Honors and Awards">🏆 荣誉奖项</h2>-->
+    <!--      <div class="news-item">-->
+    <!--        <div class="news-date">2025.10:</div>-->
+    <!--        <div class="news-content" data-zh="“华为杯”第七届中国研究生人工智能创新大赛决赛" data-en="The final of the 7th 'Huawei Cup' China Graduate Students' Innovation Competition in Artificial Intelligence">华为杯</div>-->
+    <!--      </div>-->
+
+    <!--    </section>-->
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 data-zh="📮 联系我" data-en="📮 Contact">📮 联系我</h2>
+
+        <div class="contentblock-item" style="padding: 20px 25px; margin: 25px 0;">
+            <!-- 基本信息，部分加图标 -->
+            <p style="margin-bottom: 12px;">
+                <span style="margin-right:5px;">📧</span>
+                <strong data-zh="邮箱：" data-en="Email: ">邮箱：</strong>
+                <span>yihongcao@hunnu.edu.cn</span>
+            </p>
+            <p style="margin-bottom: 12px;">
+                <span style="margin-right:5px;">🏫</span>
+                <strong data-zh="地址：" data-en="Address: ">地址：</strong>
+                <span
+                        data-zh="湖南省长沙市岳麓区桃子湖路教育科学学院524室"
+                        data-en="Room 524, Faculty of Education, Taozihu Road, Yuelu District, Changsha, Hunan, China">
   湖南省长沙市岳麓区桃子湖路教育科学学院524室
 </span>
-      <!-- 讨论主题 -->
-<div style="margin-top: 25px;">
-  <p>
-    <strong
-      data-zh="欢迎有意向的同学与合作伙伴与我联系："
-      data-en="Students and collaborators are welcome to contact me regarding:">
-      欢迎有意向的同学与合作伙伴与我联系：
-    </strong>
-  </p>
+                <!-- 讨论主题 -->
+            <div style="margin-top: 25px;">
+                <p>
+                    <strong
+                            data-zh="欢迎有意向的同学与合作伙伴与我联系："
+                            data-en="Students and collaborators are welcome to contact me regarding:">
+                        欢迎有意向的同学与合作伙伴与我联系：
+                    </strong>
+                </p>
 
-  <p style="margin-top: 10px; color: #666; display: flex; flex-wrap: wrap; gap: 20px;">
+                <p style="margin-top: 10px; color: #666; display: flex; flex-wrap: wrap; gap: 20px;">
     <span style="margin-left: 40px;">
       🔹 <span
-        data-zh="研究生报考与科研交流"
-        data-en="Graduate admissions and research discussion">
+            data-zh="研究生报考与科研交流"
+            data-en="Graduate admissions and research discussion">
         研究生报考与科研交流
       </span>
     </span>
 
-    <span>
+                    <span>
       🎓 <span
-        data-zh="学生竞赛与创新指导"
-        data-en="Student competition and innovation supervision">
+                            data-zh="学生竞赛与创新指导"
+                            data-en="Student competition and innovation supervision">
         学生竞赛与创新指导
       </span>
     </span>
 
-    <span>
+                    <span>
       🤝 <span
-        data-zh="科研项目与合作研究"
-        data-en="Research projects and collaborative studies">
+                            data-zh="科研项目与合作研究"
+                            data-en="Research projects and collaborative studies">
         科研项目与合作研究
       </span>
     </span>
 
-    <span>
+                    <span>
       📌 <span
-        data-zh="学术交流与联合探索"
-        data-en="Academic exchange and joint exploration">
+                            data-zh="学术交流与联合探索"
+                            data-en="Academic exchange and joint exploration">
         学术交流与联合探索
       </span>
     </span>
-  </p>
-</div>
+                </p>
+            </div>
 
 
-  </div>
-</section>
+        </div>
+    </section>
 
 
+    <footer style="text-align: center; padding: 40px 0; color: #666; border-top: 1px solid #eee; margin-top: 40px;">
+        <p data-zh="&copy; 2026 曹意宏. 版权所有." data-en="&copy; 2026 Yihong Cao. All rights reserved.">&copy;
+            2026 曹意宏. 版权所有.</p>
+        <p style="margin-top: 10px; font-size: 14px;" data-zh="最后更新：2026/1/13"
+           data-en="Last updated: 1/13/2026">
+            最后更新：2026/1/13
+        </p>
+    </footer>
 
-  <footer style="text-align: center; padding: 40px 0; color: #666; border-top: 1px solid #eee; margin-top: 40px;">
-    <p data-zh="&copy; 2026 曹意宏. 版权所有." data-en="&copy; 2026 Yihong Cao. All rights reserved.">&copy; 2026 曹意宏. 版权所有.</p>
-    <p style="margin-top: 10px; font-size: 14px;" data-zh="最后更新：2026/1/13" data-en="Last updated: 1/13/2026">
-      最后更新：2026/1/13
-    </p>
-  </footer>
-
-  <script>
-    function scrollToSection(sectionId) {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    }
-
-    // 监听滚动，高亮当前导航项
-    window.addEventListener('scroll', function() {
-      const sections = ['about', 'news', 'publications', 'education', 'honors', 'contact'];
-      const navItems = document.querySelectorAll('.nav-item');
-
-      let currentSection = '';
-      sections.forEach(sectionId => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 120 && rect.bottom >= 120) {
-            currentSection = sectionId;
-          }
-        }
-      });
-
-      navItems.forEach((item, index) => {
-        if (sections[index] === currentSection) {
-          item.style.color = '#0066cc';
-          item.style.fontWeight = 'bold';
-        } else {
-          item.style.color = '#333';
-          item.style.fontWeight = '500';
-        }
-      });
-    });
-
-    // 平滑加载动画
-    window.addEventListener('load', function() {
-      document.body.style.opacity = '0';
-      document.body.style.transition = 'opacity 0.5s ease-in-out';
-      setTimeout(() => {
-        document.body.style.opacity = '1';
-      }, 100);
-    });
-
-    // 为所有paper-item添加点击动效
-    document.querySelectorAll('.paper-item').forEach(item => {
-      item.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-3px)';
-      });
-
-      item.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-      });
-    });
-  </script>
 </body>
+
+
 </html>
